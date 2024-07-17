@@ -53,18 +53,20 @@ int main(int argc, char* argv[])
 
 	if (argc > 3) outFile = argv[3];
 
-	int t = 0, dt = 0;
-	EN_Project p = EN_createProject();
-	EN_openReportFile(rptFile, p);
-	EN_loadProject(inpFile, p);
-	EN_openOutputFile("", p);
-	EN_initSolver(EN_NOINITFLOW, p);
-	do {
-		EN_runSolver(&t, p);
-		EN_advanceSolver(&dt, p);
-	} while (dt > 0);
-	EN_writeReport(p);
-	EN_deleteProject(p);
+	// int t = 0, dt = 0;
+	// EN_Project p = EN_createProject();
+	// EN_openReportFile(rptFile, p);
+	// EN_loadProject(inpFile, p);
+	// EN_openOutputFile("", p);
+	// EN_initSolver(EN_NOINITFLOW, p);
+	// do {
+	// 	EN_runSolver(&t, p);
+	// 	EN_advanceSolver(&dt, p);
+	// } while (dt > 0);
+	// EN_writeReport(p);
+	// EN_deleteProject(p);
+
+	EN_runEpanet(inpFile, rptFile, outFile);
 	
 	return 0;
 }
